@@ -1,6 +1,6 @@
 package controllers
 import (
-	"webapi/webgo"
+	"web-go-example/webgo"
 //	"fmt"
 	"fmt"
 )
@@ -19,7 +19,7 @@ func (c *Test) TestRender () {
 		UserName string
 	}
 	p := Person{UserName: "Astaxie"}
-	c.Render("welcome",p)
+	c.Render("index",p)
 }
 
 func (c *Test) TestJson () {
