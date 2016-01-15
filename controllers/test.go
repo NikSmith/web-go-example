@@ -1,6 +1,8 @@
 package controllers
 import (
 	"webapi/webgo"
+//	"fmt"
+	"fmt"
 )
 
 type Test struct{
@@ -8,11 +10,11 @@ type Test struct{
 }
 
 func (c *Test) Index() {
-	c.SetHeader("header-test","test");
 	c.Plain("Hello World")
 }
 
 func (c *Test) TestRender () {
+	c.SetHeader("header-test","test");
 	type Person struct {
 		UserName string
 	}
@@ -23,4 +25,22 @@ func (c *Test) TestRender () {
 func (c *Test) TestJson () {
 	f:= []string{"id","1"}
 	c.Json(f)
+}
+
+func (c *Test) CheckPost () {
+	var t map[string]int
+	err := c.Ctx.ValidateSchema(&t)
+	if err != nil {
+		fmt.Println(err)
+	}
+	c.Json(c.Ctx.Body)
+}
+
+func (c *Test) CheckJsonPost () {
+	var t map[string][]int
+	err := c.Ctx.ValidateSchema(&t)
+	if err != nil {
+
+	}
+	c.Json(t)
 }
