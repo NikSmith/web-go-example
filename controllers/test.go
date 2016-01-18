@@ -1,8 +1,11 @@
 package controllers
 import (
-	"web-go-example/webgo"
+	"webapi/webgo"
 //	"fmt"
 	"fmt"
+
+	"gopkg.in/mgo.v2"
+	"gopkg.in/mgo.v2/bson"
 )
 
 type Test struct{
@@ -20,6 +23,12 @@ func (c *Test) TestRender () {
 	}
 	p := Person{UserName: "Astaxie"}
 	c.Render("index",p)
+
+	DB:=webgo.MODULES("db").GetInstance().(*mgo.Session)
+
+	db := DB.Copy()
+	fmt.Println(db.DB("test").C("test").Find(bson.M{"efef":333}))
+
 }
 
 func (c *Test) TestJson () {

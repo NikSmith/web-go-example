@@ -1,6 +1,6 @@
 package definitions
 import (
-	"web-go-example/webgo"
+	"webapi/webgo"
 )
 
 

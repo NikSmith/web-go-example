@@ -1,3 +1,5 @@
-author  : Nikita
-smtp:
-    port: 25
+port=80
+dbHost=127.0.0.1
+dbName=local
+dbUser=intelliq
+dbPassword=
