@@ -28,8 +28,9 @@ func (c *Test) TestJson () {
 }
 
 func (c *Test) CheckPost () {
+	var err error
 	var t map[string]int
-	err := c.Ctx.ValidateSchema(&t)
+	err = c.Ctx.ValidateSchema(&t)
 	if err != nil {
 		fmt.Println(err)
 	}
@@ -37,8 +38,9 @@ func (c *Test) CheckPost () {
 }
 
 func (c *Test) CheckJsonPost () {
+	var err error
 	var t map[string][]int
-	err := c.Ctx.ValidateSchema(&t)
+	err = c.Ctx.ValidateSchema(&t)
 	if err != nil {
 
 	}
