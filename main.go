@@ -12,10 +12,11 @@ func main()  {
 	webgo.RegisterModule("db", &modules.Mongo{})
 
 
-	webgo.Get("/",&controllers.Test{},"",nil,"Index")
-	webgo.Get("/render",&controllers.Test{},"",nil,"TestRender")
-	webgo.Get("/json",&controllers.Test{},"",nil,"TestJson")
-	webgo.Post("/post",&controllers.Test{},"",nil,"CheckJsonPost")
-	webgo.Post("/simple",&controllers.Test{},"",nil,"CheckPost")
+	webgo.Get("/",&controllers.Test{},"","Index")
+	webgo.Get("/render",&controllers.Test{},"","TestRender")
+	webgo.Get("/json",&controllers.Test{},"","TestJson")
+	webgo.Post("/post",&controllers.Test{},"","CheckJsonPost")
+	webgo.Post("/simple",&controllers.Test{},"","CheckPost")
+	webgo.Get("/users/:id",&controllers.Users{},"","GetUser")
 	webgo.Run()
 }

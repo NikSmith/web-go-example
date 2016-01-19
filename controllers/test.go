@@ -1,34 +1,30 @@
 package controllers
 import (
 	"webapi/webgo"
-//	"fmt"
 	"fmt"
-
-	"gopkg.in/mgo.v2"
 )
 
 type Test struct{
 	webgo.Controller
 }
 
+
 func (c *Test) Index() {
 	c.Plain("Hello World")
 }
 
 func (c *Test) TestRender () {
+	c.Ctx.SetCookie("efef","eee",100, "/","127.0.0.1",false,false)
+
+	//cookieValue:=c.Ctx.GetCookie("efef")
+
 	c.SetHeader("header-test","test");
 	type Person struct {
 		UserName string
 	}
+
 	p := Person{UserName: "Astaxie"}
 	c.Render("index",p)
-
-	DB:=webgo.MODULES("db").GetInstance().(*mgo.Session)
-
-	db := DB.Copy()
-	db.Close()
-	//fmt.Println(db.DB("test").C("test").Find(bson.M{"efef":333}))
-
 }
 
 func (c *Test) TestJson () {
