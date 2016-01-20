@@ -39,6 +39,8 @@ func (c *Test) CheckPost () {
 	if err != nil {
 		fmt.Println(err)
 	}
+
+	fmt.Println(c.Ctx.Files, c.Ctx.Body)
 	c.Json(c.Ctx.Body)
 }
 
@@ -47,7 +49,7 @@ func (c *Test) CheckJsonPost () {
 	var t map[string][]int
 	err = c.Ctx.ValidateSchema(&t)
 	if err != nil {
-
+		fmt.Println(err)
 	}
 	c.Json(t)
 }

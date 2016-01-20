@@ -1,4 +1,5 @@
 port=80
+maxBodyLength = 4096
 dbHost=127.0.0.1
 dbName=local
 dbUser=intelliq
